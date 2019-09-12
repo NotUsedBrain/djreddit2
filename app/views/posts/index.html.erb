@@ -1,0 +1,19 @@
+
+  <h1>Posts</h1>
+
+  <% @posts.each do |post| %>
+
+      <h2><%= link_to post.title, post %></h2>
+      <p><%= post.content %></p>
+      <small>Posted <%= post.created_at %></small>
+      <br>
+      <br>
+      <a><%= link_to 'Edit', edit_post_path(post) %></a>
+      <a><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      <h3><%= link_to pluralize(post.comments.count, 'Comment'), post_path(post) %></h3>
+    <% end %>
+ 
+<br>
+
+<%# <%= link_to 'New Post', new_post_path %>
+
