@@ -36,7 +36,7 @@
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-          <a class="dropdown-item"> Logged in as <%= current_user.email %></a>
+          <a class="dropdown-item"> Logged in as <%= current_user.nickname %></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"> <%= link_to 'Edit profile', edit_user_registration_path %></a>
           <a class="dropdown-item"> <%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
