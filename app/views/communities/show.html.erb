@@ -12,10 +12,16 @@
 
 <p><%= pluralize(@community.posts.count, 'Post') %></p><br>
 <%= render @community.posts %>
+
 <br>
 <br>
-<h3>Create New Post</h3> <!-- where did you get 'join' from? -->
+<h3>Create New Post</h3>
+
+<h3>Posts</h3>
+
 <%= render 'posts/form'%>
+
+
 
 <%= link_to 'Edit', edit_community_path(@community) %> |
 <%= link_to 'Back', communities_path %>

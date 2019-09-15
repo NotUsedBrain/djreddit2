@@ -17,5 +17,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
+  
+
+
+  def destroy
+    @community = Community.find(params[:community_id])
+    @post = @community.posts.find(params[:id])
+    @post.destroy
+    redirect_to post_path(@post)
   end
  
