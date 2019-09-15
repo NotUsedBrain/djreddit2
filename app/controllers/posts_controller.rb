@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def create
     @community = Community.find(params[:community_id])
-    @post = @community.posts.create(params[:post].permit(post_params))
+    @post = @community.posts.create(params[:post].permit(:title, :content))
 
     redirect_to community_path(@community)
   end
@@ -15,10 +15,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :content)
+  def destroy
+    @community = Community.find(params[:community_id])
+    @post = @community.posts.find(params[:id])
+    @post.destroy
+    redirect_to post_path(@post)
   end
 
 end
