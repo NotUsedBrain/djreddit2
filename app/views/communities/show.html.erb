@@ -10,10 +10,11 @@
   <%= @community.description %>
 </p>
 
-<h2><%= @community.posts.count %></h2><br>
+<p><%= pluralize(@community.posts.count, 'Post') %></p><br>
 <%= render @community.posts %>
-
-<h3>Join</h3>
+<br>
+<br>
+<h3>Create New Post</h3> <!-- where did you get 'join' from? -->
 <%= render 'posts/form'%>
 
 <%= link_to 'Edit', edit_community_path(@community) %> |
